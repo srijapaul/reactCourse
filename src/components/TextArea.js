@@ -55,15 +55,15 @@ export default function TextArea(props) {
       <button disabled={text.length===0} className='btn btn-primary mx-2 my-2' onClick={handleRemoveExtraSpaces}>Remove Extra Spaces</button>
       
       
-    </div><div className='container'>
-        <h1>Your text summary</h1>
-        <p> {text.split(" ").filter((element)=>{return element.length!==0}).length} words and {text.length} characters</p>
-    
-        <p>
-  {text.trim() === "" ? "nothing to read as of now" : `${0.008 *text.split(" ").filter((element) => element.trim().length !== 0).length} minutes to read`}
-</p>
-       {/* <p> {0.008 * text.split(" ").length} minutes to read</p> */}
+        </div><div className='container'>
+            <h1>Your text summary</h1>
+            <p> {text.split(/\s+/).filter((element)=>{return element.length!==0}).length} words and {text.length} characters</p>
+        
+            <p>
+      {text.trim() === "" ? "nothing to read as of now" : `${0.008 *text.split(" ").filter((element) => element.trim().length !== 0).length} minutes to read`}
+    </p>
+           {/* <p> {0.008 * text.split(" ").length} minutes to read</p> */}
 
-      </div></>
+          </div></>
   )
 }
